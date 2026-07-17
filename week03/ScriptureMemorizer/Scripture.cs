@@ -10,12 +10,9 @@ class Scripture
     {
         _reference = reference;
         _words = new List<Word>();
-        
-        // Abstracted Behavior: Internal generation of the word list
         ParseText(text);
     }
 
-    // Helper method hidden from the outside world
     private void ParseText(string text)
     {
         string[] splitWords = text.Split(' ');
@@ -27,7 +24,6 @@ class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-        // Complex lookup and selection filtering is hidden behind this single call
         List<int> visibleIndices = GetVisibleWordIndices();
         int actualToHide = Math.Min(numberToHide, visibleIndices.Count);
         Random random = new Random();
@@ -42,7 +38,6 @@ class Scripture
         }
     }
 
-    // Hides the data query mechanics from the caller
     private List<int> GetVisibleWordIndices()
     {
         List<int> indices = new List<int>();
